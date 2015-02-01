@@ -1,0 +1,50 @@
+body {
+    background: #a6dde3;
+}
+#listado {
+    clear: both;
+    float: left;
+}
+#listado li {
+    text-decoration: none;
+    list-style: none;
+    display: block;
+    float: left;
+    width: 200px;
+    background: #b9b7b7;
+    margin: 10px;
+}
+#listado li a {
+    text-decoration: none;
+    color: #000000;
+}
+#listado li a:hover {
+    color: #837272;
+}
+#mostrar {
+    clear: both;
+    float: left;
+    background: #959191;
+    min-width: 400px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+}
+fieldset {
+    margin-left: 50px;
+    display: block;
+    float: left;
+    width: 250px;
+    height: 275px;
+}
+form {
+    clear: both;
+}
+#add {
+    display: block;
+    float: left;
+}
+#linea fieldset {
+    margin-left: 50px;
+    width: 250px;
+    height: 175px;
+}

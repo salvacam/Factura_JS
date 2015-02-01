@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ejercicio 3 funciones y objetos</title>
+    <link rel="stylesheet" href="estilo.css" />
+    <script src="formulario.js"></script>
+    <script src="estructuraFactura.js"></script>
+    <script src="facturas.js"></script>
+</head>
+
+<body>
+    <h1>Facturas</h1>
+    <!--<input type="button" value="borrarTodo" id="borrar"/>-->
+    <form name="formulario" id="formulario" method="get" action="#">
+        <fieldset>
+            <legend>Empresa</legend>
+            <label for="nombreEmpresa">Nombre</label>
+            <input type="text" name="nombreEmpresa" id="nombreEmpresa" placeholder="Nombre" value="" autocomplete="on" tabindex="1">
+            <br/>
+
+            <label for="direccionEmpresa">Direccion</label>
+            <input type="text" name="direccionEmpresa" id="direccionEmpresa" placeholder="Direccion" value="" autocomplete="on" tabindex="1">
+            <br/>
+
+            <label for="telefonoEmpresa">Teléfono</label>
+            <input type="text" class="telefono" name="telefonoEmpresa" id="telefonoEmpresa" placeholder="Telefono" value="" autocomplete="on" tabindex="1">
+            <br/>
+
+
+            <label for="documentoEmpresa">NIF</label>
+            <input type="text" name="documentoEmpresa" id="documentoEmpresa" placeholder="NIF" value="" autocomplete="on" tabindex="1">
+            <br/>
+            <br/>
+            <input type="button" id="defecto" value="Establecer Valores por defecto" /><br/>
+            <input type="button" id="remove" value="Limpiar Valores por defecto" />
+        </fieldset>
+
+        <fieldset>
+            <legend>Cliente</legend>
+            <label for="nombreCliente">Nombre</label>
+            <input type="text" name="nombreCliente" id="nombreCliente" placeholder="Nombre" value="" autocomplete="on" tabindex="1">
+            <br/>
+
+            <label for="direccionCliente">Direccion</label>
+            <input type="text" name="direccionCliente" id="direccionCliente" placeholder="Direccion" value="" autocomplete="on" tabindex="1">
+            <br/>
+
+            <label for="telefonoCliente">Teléfono</label>
+            <input type="text" class="telefono" name="telefonoCliente" id="telefonoCliente" placeholder="Telefono" value="" autocomplete="on" tabindex="1">
+            <br/>
+
+
+            <label for="documentoCliente">NIF</label>
+            <input type="text" name="documentoCliente" id="documentoCliente" placeholder="DNI" value="" autocomplete="on" tabindex="1">
+            <br/>
+        </fieldset>
+
+        <fieldset>
+            <span class="etiqueta">Tipo de pago</span><br/>
+            <input type="radio" name="pago" id="pago1" value="contado" checked/>
+            <label for="pago1">Contado</label>
+            <br/>
+            <input type="radio" name="pago" id="pago2" value="tarjeta" />
+            <label for="pago2">Tarjeta</label>
+            <br/>
+            <span class="etiqueta">Iva</span><br/>
+            <input type="radio" name="iva" id="iva1" value="21" checked/>
+            <label for="iva1">21%</label>
+            <br/>
+            <input type="radio" name="iva" id="iva2" value="10" />
+            <label for="iva2">10%</label>
+            <br/>            
+            <input type="radio" name="iva" id="iva3" value="4" />
+            <label for="iva3">4%</label>
+        </fieldset>
+        
+        <input type="button" value="Limpiar" id="limpiar" /> <br/><br/>
+        <input type="button" value="Guardar" id="guardar" />
+    </form>
+    <ul id="listado">
+
+    </ul>
+
+    <div id="mostrar">
+
+    </div>
+    
+    <div id="add">
+		<form name="linea" id="linea" method="get" action="#" hidden>
+			<fieldset>
+				<legend>Linea</legend>
+				<label for="desc">Descripcion</label>
+		        <input type="text" name="desc" id="desc" placeholder="Descripcion" value="">		        
+				<br/>
+				<label for="precio">Precio</label>
+		        <input type="text" class="numero" name="precio" id="precio" placeholder="Precio" value="">		        
+				<br/>
+				<label for="cant">Cantidad</label>
+		        <input type="text" class="numero" name="cant" id="cant" placeholder="Cantidad" value="">		        		        
+				<br/>				
+		        <input type="button" value="Añadir" id="addLinea" />
+			</fieldset>
+		</form>
+    </div>
+</body>
+
+</html>

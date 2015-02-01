@@ -1,0 +1,90 @@
+window.addEventListener("load", init);
+
+function init() {
+	
+	function valoresDefecto() {
+        if (localStorage.length > 0) {
+            if (localStorage.getItem("facturaEmpresa") != undefined && localStorage.getItem("facturaEmpresa") != "") {
+                var empresaDefecto = JSON.parse(localStorage.getItem("facturaEmpresa"));
+                document.getElementById("nombreEmpresa").value = empresaDefecto.nombre;
+                document.getElementById("direccionEmpresa").value = empresaDefecto.direccion;
+                document.getElementById("telefonoEmpresa").value = empresaDefecto.telefono;
+                document.getElementById("documentoEmpresa").value = empresaDefecto.documento;
+            }
+        }
+    }
+	
+	var limpiarValores = function (){
+        valoresDefecto();
+        //document.getElementById("nombreCliente").value = "";
+		//document.getElementById("direccionCliente").value = "";
+		//document.getElementById("telefonoCliente").value = "";
+		//document.getElementById("documentoCliente").value = ""
+	};
+
+	valoresDefecto();
+    limpiarValores();
+
+
+
+    var btdef = document.getElementById("defecto");
+    btdef.addEventListener("click", function () {
+        var nombre = document.getElementById("nombreEmpresa").value;
+        console.log(nombre);
+        var direccion = document.getElementById("direccionEmpresa").value;
+        console.log(direccion);
+        var telefono = document.getElementById("telefonoEmpresa").value;
+        console.log(telefono);
+        var nif = document.getElementById("documentoEmpresa").value;
+        console.log(nif);
+
+        if (nombre == "" || direccion == "" || telefono == "" || nif == "") {
+            alert("valores vacio");
+        } else {
+            if (confirm("¿Quieres guardar los valores?")) {
+                var empresa = new Entidad(nombre, direccion, telefono, nif);
+                localStorage.setItem("facturaEmpresa", JSON.stringify(empresa));
+            }
+        }
+    });
+    
+    var limpiar = document.getElementById("limpiar");
+    limpiar.addEventListener("click", limpiarValores);
+    
+
+
+    var remove = document.getElementById("remove");
+    remove.addEventListener("click", function () {
+		if (confirm("¿Quieres eliminar los valores?")) {
+	        document.getElementById("nombreEmpresa").value = "";
+			document.getElementById("direccionEmpresa").value = "";
+			document.getElementById("telefonoEmpresa").value = "";
+			document.getElementById("documentoEmpresa").value = "";
+			localStorage.removeItem("facturaEmpresa");
+		}
+    });
+    
+    var comprobarCamposFactura = function() {
+        var nombre = document.getElementById("nombreEmpresa").value;
+        var direccion = document.getElementById("direccionEmpresa").value;
+        var telefono = document.getElementById("telefonoEmpresa").value;
+        var nif = document.getElementById("documentoEmpresa").value;
+
+
+        if (nombre.length < 2 || direccion.length < 5 || telefono == "" || nif == "") {
+            alert("valores Empresa no validos");
+            return false;
+        }
+
+        var nombreC = document.getElementById("nombreCliente").value;
+        var direccionC = document.getElementById("direccionCliente").value;
+        var telefonoC = document.getElementById("telefonoCliente").value;
+        var nifC = document.getElementById("documentoCliente").value;
+
+        if (nombreC == "" || direccionC == "" || telefonoC == "" || nifC == "") {
+            alert("valores Cliente vacio");
+            return false;
+        }
+        return true;
+    }
+}
